@@ -1,0 +1,29 @@
+@startuml
+
+node "<<Qt>> peppi" {
+  [MainWidow] -->  [Login]
+  [Login] --> [StudentInfo]
+}
+
+node "<<REST API>> backend" {
+  [RouteLogin]
+  [Login] --> [RouteLogin]
+  [RouteLogin] --> [Student_model]  
+  [StudentInfo] --> [RouteStudent]
+  [RouteStudent] -->  [Student_model] 
+  [RouteGrade] -->   [Grade_model] 
+
+
+  [Grade_model] -->[Database.js]
+  [Student_model] --> [Database.js]
+}
+
+node "<<MySQL>>" {
+  database peppidb
+}
+
+
+
+[Database.js] --> [peppidb]
+
+@enduml

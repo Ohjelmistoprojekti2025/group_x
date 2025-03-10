@@ -1,0 +1,43 @@
+@startuml
+
+class App {
+    - express.Router(): router
+    + authenticateToken(reguest, response, next): void
+    + use('/): void
+    + use('/login): void
+    + use('/student): void
+}
+
+class Login {
+    - express.Router(): router
+    - bcrypt: bcryptjs
+    - jwt: jsonwebtoken
+    - dotenv: dotenv
+    - generateAccessToken(string): jsonwebtoken
+    + POST /
+}
+
+class RouterStudent {
+    - express.Router(): router
+    + GET(): jsonArray
+    + GET(username): jsonObject
+    + POST(jsonArray): int
+    + PUT(string, jsonArray): int
+    + DELETE(string): int
+}
+
+class StudentModel {
+    - db.query(string)
+    + getAll(callback): QueryResult
+    + getOne(string, callback): QueryResult
+    + add(jsronArray, callback): QueryResult
+    + update(string, jsonArray, callback): QueryResult
+    + delete(string, callback): QueryResult
+}
+App --> Login
+App --> RouterStudent
+RouterStudent --> StudentModel
+Login --> StudentModel
+
+
+@enduml

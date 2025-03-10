@@ -1,0 +1,36 @@
+@startuml
+
+class Login {
+    - on_btnLogin_clicked(): void
+    - loginSlot(QNetworkReply *reply): void
+    - QNetworkAccessManager *postManager
+    - QNetworkReply *reply
+    - QByteArray response_data
+    - StudentInfo *objStudentInfo
+}
+
+class MainWindow {
+	- Login *objLogin
+	- on_btnStart_clicked(): void
+
+}
+MainWindow *-- Login
+Login *-- StudentInfo
+
+class StudentInfo {
+    - QString username;
+    - QByteArray myToken;
+    - QNetworkAccessManager *gradeManager;
+    - QNetworkReply *reply;
+    - QByteArray response_data;
+
+    - on_btnData_clicked(): void
+    - on_btnGrade_clicked(): void
+    - gradeSlot (QNetworkReply *reply): void
+   
+    + setUsername(const QString &newUsername): void
+    + setMyToken(const QByteArray &newMyToken): void
+
+}
+
+@enduml

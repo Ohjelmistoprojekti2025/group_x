@@ -1,0 +1,20 @@
+@startuml
+
+node "Client Machine" {
+    component "Qt application" as QtApp
+}
+
+node "Server" {
+    component "REST API (Node.js/Express)" as RestAPI
+    database "Database (MySQL/MariaDB)" as Database
+}
+
+QtApp -[hidden]-> RestAPI : "HTTP (Qt Network)"
+RestAPI -[hidden]-> Database : "SQL Queries"
+
+QtApp -> RestAPI : "HTTP Requests"
+RestAPI -> Database : "Read/Write Operations"
+Database -> RestAPI : "Query Responses"
+RestAPI -> QtApp : "JSON Responses"
+
+@enduml
