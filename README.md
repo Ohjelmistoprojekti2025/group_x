@@ -61,7 +61,7 @@ Kaaviota piirettiin siis niin pitkälle, että todettiin ettei monen-suhde-monee
 <p>
     Tämän jälkeen tietokannan taulut luotiin MySQL-Workbench sovelluksella. Tauluihin merkittiin kentät, perusavaimet ja luotiin viiteavaimien avulla viite-eheys. Tämän jälkeen Workbenchillä generoitiin tietokanta ja ER-kaavio. Nyt tietokanta ja sen ER-malli ovat varmasti yhtäpitävät.
 <br>
-<img src="./UML/er_model_final.png">
+<img src="./peppi_er.png">
 <br>
 </p>
 <h2>Käyttöliittymän suunnittelu</h2>
