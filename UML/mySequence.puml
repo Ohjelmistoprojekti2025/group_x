@@ -1,0 +1,38 @@
+@startuml
+
+actor Student
+
+participant "User Interface" as UI
+participant "LoginController" as LC
+participant "User Database" as DB
+
+Student -> UI : Enter credentials
+UI -> LC : Submit login request
+LC -> DB : Verify credentials
+DB -> LC : Return verification result
+LC -> UI : Show menu if successful
+UI -> Student : Display options
+LC -> UI : Return to login if unsuccessful
+
+Student -> UI : Select "View Personal Info"
+UI -> LC : Request info
+LC -> DB : Fetch info
+DB -> LC : Return info
+LC -> UI : Display info
+UI -> Student : Show info
+
+Student -> UI : Select "View Grades"
+UI -> LC : Request grades
+LC -> DB : Fetch grades
+DB -> LC : Return grades
+LC -> UI : Display grades
+UI -> Student : Show grades
+
+Student -> UI : Select "Register for Course"
+UI -> LC : Request registration
+LC -> DB : Register student
+DB -> LC : Confirm registration
+LC -> UI : Show confirmation
+UI -> Student : Display confirmation
+
+@enduml
