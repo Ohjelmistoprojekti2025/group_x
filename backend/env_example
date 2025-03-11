@@ -1,0 +1,3 @@
+//laita .env tiedostoon rivit
+MYSQL_SERVER='mysql://peppiuser:peppipass@127.0.0.1:3306/peppidb'
+MY_TOKEN=5eeiDO5d7A9hge7oOhYNhZ4bU1XcgoPWHWJDOnO7txnTWHEklnBelTnRpInBSs2ZP0uqhs7g7Ev/X8U3/tlP6g==
