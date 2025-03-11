@@ -26,5 +26,41 @@ router.get('/:id',function(request, response){
     })
 });
 
+router.post('/',function(request, response){
+    course.add(request.body, function(err, result){
+        if(err){
+            response.json(err);
+        }
+        else{
+            //palautetaan muokattujen rivien määrä
+            response.json(result.affectedRows);
+        }
+    })
+});
+
+router.put('/:id',function(request, response){
+    course.update(request.params.id, request.body, function(err,result){
+        if(err){
+            response.json(err);
+        }
+        else{
+            //palautetaan muokattujen rivien määrä
+            response.json(result.affectedRows);
+        }
+    })
+});
+
+router.delete('/:id',function(request, response){
+    course.delete(request.params.id, function(err, result){
+        if(err){
+            response.json(err);
+        }
+        else{
+            //palautetaan muokattujen rivien määrä
+            response.json(result.affectedRows);
+        }
+    })
+});
+
 
 module.exports=router;
