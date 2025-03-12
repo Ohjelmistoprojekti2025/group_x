@@ -41,18 +41,17 @@ void MainWindow::loginSlot(QNetworkReply *reply)
 
         objMessageBox.setText("Virhe tietoliikenne yhteydessä");
         objMessageBox.exec();
-    }
-    else {
-        if(response_data=="false"){
-           qDebug()<<"Tunnus tai salasana väärin";
+    } else {
+        if (response_data == "false") {
+            qDebug() << "Tunnus tai salasana väärin";
             objMessageBox.setText("Tunnus ja salasana eivät täsmää");
             objMessageBox.exec();
+        } else {
+            qDebug() << response_data;
+            StudentMenu *objStudentMenu = new StudentMenu(this);
+            objStudentMenu->setUsername(ui->textUsername->text());
+            objStudentMenu->open();
         }
-        else {
-          qDebug()<<response_data;
-        }
-
     }
-
 }
 
