@@ -7,8 +7,8 @@
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
 #include <QMessageBox>
-#include "studentmenu.h"
 #include "environment.h"
+#include "studentdata.h"
 
 namespace Ui {
 class StudentMenu;

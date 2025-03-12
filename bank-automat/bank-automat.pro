@@ -12,15 +12,18 @@ SOURCES += \
     environment.cpp \
     main.cpp \
     mainwindow.cpp \
+    studentdata.cpp \
     studentmenu.cpp
 
 HEADERS += \
     environment.h \
     mainwindow.h \
+    studentdata.h \
     studentmenu.h
 
 FORMS += \
     mainwindow.ui \
+    studentdata.ui \
     studentmenu.ui
 
 # Default rules for deployment.

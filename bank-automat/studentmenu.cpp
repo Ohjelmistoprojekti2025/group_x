@@ -43,6 +43,9 @@ void StudentMenu::on_btnMyData_clicked()
 void StudentMenu::myDataSlot(QNetworkReply *reply)
 {
     response_data=reply->readAll();
-    qDebug()<<response_data;
+    StudentData *objStudentData=new StudentData(this);
+    objStudentData->setMyData(response_data);
+    objStudentData->open();
+    //qDebug()<<response_data;
 }
 
