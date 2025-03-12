@@ -31,6 +31,24 @@
     <string>username: </string>
    </property>
   </widget>
+  <widget class="QPushButton" name="btnMyData">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>130</y>
+     <width>191</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Omat tiedot</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

@@ -24,3 +24,25 @@ void StudentMenu::setWebToken(const QByteArray &newWebToken)
     webToken = newWebToken;
     qDebug()<<webToken;
 }
+
+void StudentMenu::on_btnMyData_clicked()
+{
+    QString site_url=environment::base_url()+"/student/"+username;
+    QNetworkRequest request(site_url);
+    //WEBTOKEN ALKU
+    //QByteArray myToken="Bearer "+webToken;
+    request.setRawHeader(QByteArray("Authorization"),(webToken));
+    //WEBTOKEN LOPPU
+    manager = new QNetworkAccessManager(this);
+
+    connect(manager, &QNetworkAccessManager::finished, this, &StudentMenu::myDataSlot);
+
+    reply = manager->get(request);
+}
+
+void StudentMenu::myDataSlot(QNetworkReply *reply)
+{
+    response_data=reply->readAll();
+    qDebug()<<response_data;
+}
+
