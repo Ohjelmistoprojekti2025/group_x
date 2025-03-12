@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -34,6 +35,24 @@ void MainWindow::on_btnLogin_clicked()
 void MainWindow::loginSlot(QNetworkReply *reply)
 {
     response_data=reply->readAll();
-    qDebug()<<response_data;
+    QMessageBox objMessageBox;
+    if(response_data.length()<2 || response_data=="db_error"){
+        qDebug()<<"Virhe yhteydessä";
+
+        objMessageBox.setText("Virhe tietoliikenne yhteydessä");
+        objMessageBox.exec();
+    }
+    else {
+        if(response_data=="false"){
+           qDebug()<<"Tunnus tai salasana väärin";
+            objMessageBox.setText("Tunnus ja salasana eivät täsmää");
+            objMessageBox.exec();
+        }
+        else {
+          qDebug()<<response_data;
+        }
+
+    }
+
 }
 
