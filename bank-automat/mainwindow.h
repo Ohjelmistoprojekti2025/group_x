@@ -6,6 +6,8 @@
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
 #include <QMessageBox>
+#include "studentmenu.h"
+#include "environment.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

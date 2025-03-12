@@ -7,6 +7,7 @@ var indexRouter = require('./routes/index');
 var courseRouter = require('./routes/course');
 var studentRouter = require('./routes/student');
 var loginRouter = require('./routes/login');
+var gradeRouter = require('./routes/grade');
 var jwt=require('jsonwebtoken');
 
 var app = express();
@@ -23,6 +24,7 @@ app.use('/login', loginRouter);
 app.use(authenticateToken);
 app.use('/course', courseRouter);
 app.use('/student', studentRouter);
+app.use('/grade', gradeRouter);
 
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization']
