@@ -21,7 +21,7 @@ void MainWindow::on_btnLogin_clicked()
     jsonObj.insert("password",ui->textPassword->text());
 
 
-    QString site_url="http://localhost:3000/login";
+    QString site_url=environment::base_url()+"/login";
     QNetworkRequest request(site_url);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
@@ -48,8 +48,11 @@ void MainWindow::loginSlot(QNetworkReply *reply)
             objMessageBox.exec();
         } else {
             qDebug() << response_data;
+            QByteArray token="Bearer "+response_data;
             StudentMenu *objStudentMenu = new StudentMenu(this);
             objStudentMenu->setUsername(ui->textUsername->text());
+            objStudentMenu->setWebToken(token);
+
             objStudentMenu->open();
         }
     }

@@ -18,3 +18,9 @@ void StudentMenu::setUsername(const QString &newUsername)
     username = newUsername;
     ui->labelUsername->setText(username);
 }
+
+void StudentMenu::setWebToken(const QByteArray &newWebToken)
+{
+    webToken = newWebToken;
+    qDebug()<<webToken;
+}
