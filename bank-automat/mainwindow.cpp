@@ -56,5 +56,8 @@ void MainWindow::loginSlot(QNetworkReply *reply)
             objStudentMenu->open();
         }
     }
+
+    reply->deleteLater();
+    manager->deleteLater();
 }
 

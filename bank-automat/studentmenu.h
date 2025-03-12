@@ -29,6 +29,9 @@ public:
 private slots:
     void on_btnMyData_clicked();
     void myDataSlot(QNetworkReply *reply);
+    void myGradeSlot(QNetworkReply *reply);
+
+    void on_btnGrades_clicked();
 
 private:
     Ui::StudentMenu *ui;
